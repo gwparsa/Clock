@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="clock"><p>&#128151</p></div>
+</div>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+/* *{ cursor: url("c.png"),auto;} */
+body {
+
+    display: grid;
+    place-items: center;
+    background: #131419;
+}
+
+.container {
+    background: #131419;
+    height: 120px;
+    width: 550px;
+    line-height: 120px;
+    text-align: center;
+    padding: 0 5px;
+    box-shadow: -3px -3px 7px rgba(255, 255, 255, 0.05), 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container .clock {
+    font-size: 60px;
+    color: goldenrod;
+    letter-spacing: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+</style>
+
+<script>
+    setInterval(() => {
+        const clock = document.querySelector('.clock');
+
+            let sec = new Date().getSeconds();
+            let min = new Date().getMinutes();
+            let hr = new Date().getHours();
+            let day = hr >= 12 ? 'PM' : 'AM';
+
+            sec < 10 ? sec = '0' + sec : sec;
+            min < 10 ? min = '0' + min : min;
+            hr < 10 ? hr = '0' + hr : hr;
+
+        clock.textContent = hr + ':' + min + ':' + sec + ' ' + day;
+
+    }, 1000);
+</script>
+
